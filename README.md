@@ -2,6 +2,14 @@
 
 docker build -t daocloud.io/daocloud/cluster-cleanup:0.1 .
 
+## 最简清理方法
+
+创建 docker 清理的 daemonset
+kubectl create -f docker-clean.yaml
+
+更新镜像可以用下面命令：
+kubectl  patch daemonset  k8s-cleanup -n kube-system   --type='json' -p='[{"op": "replace", "path": "/spec/template/spec/containers/0/image", "value":"daocloud.io/daocloud/clean-cluster:0.2"}]'
+
 ## k8s-cleanup
 
 Here are 3 cleanups you can apply on your kubernetes cluster:
