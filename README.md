@@ -1,3 +1,7 @@
+## 构建方法
+
+docker build -t daocloud.io/daocloud/cluster-cleanup:0.1 . 
+
 ## k8s-cleanup
 
 Here are 3 cleanups you can apply on your kubernetes cluster:

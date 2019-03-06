@@ -8,6 +8,6 @@ while true; do
   # Remove dangling volumes
   docker volume ls -qf dangling=true  | xargs --no-run-if-empty docker volume rm
 
-  # DOCKER_CLEAN_INTERVAL defaults to 30min
+  # DOCKER_CLEAN_INTERVAL defaults to 1 day
   sleep $DOCKER_CLEAN_INTERVAL
 done
