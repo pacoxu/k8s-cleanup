@@ -2,11 +2,11 @@
 
 while true; do
   # Remove exited containers
-  docker ps -a -q -f status=exited    | xargs --no-run-if-empty docker rm -v
+  curl -X POST  --unix-socket /var/run/docker.sock http:/v1.24/containers/prune
   # Remove dangling images
-  docker images -f "dangling=true" -q | xargs --no-run-if-empty docker rmi
+  curl -X POST  --unix-socket /var/run/docker.sock http:/v1.24/images/prune?dangling=true
   # Remove dangling volumes
-  docker volume ls -qf dangling=true  | xargs --no-run-if-empty docker volume rm
+  curl -X POST  --unix-socket /var/run/docker.sock http:/v1.24/volumes/prune
 
   # DOCKER_CLEAN_INTERVAL defaults to 1 day
   sleep $DOCKER_CLEAN_INTERVAL

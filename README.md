@@ -1,6 +1,6 @@
 ## 构建方法
 
-docker build -t daocloud.io/daocloud/cluster-cleanup:0.1 . 
+docker build -t daocloud.io/daocloud/cluster-cleanup:0.1 .
 
 ## k8s-cleanup
 
@@ -14,7 +14,7 @@ You must have `batch/v2alpha1` enabled on your k8s API server runtime config in 
 ### Env vars
 In the DaemonSet (`docker-clean.yml`) you can set `DOCKER_CLEAN_INTERVAL` to modify the interval when it cleans up exited containers and dangling images/volumes; defaults to 30min (1800s).
 
-In the CronJob (`k8s-clean.yml`) you can set `DAYS` to modify the maximum age of replica sets; defaults to 7 days.
+In the CronJob (`k8s-clean.yml`) you can set `K8S_CLEAN_DAYS` to modify the maximum age of replica sets; defaults to 7 days.
 
 ### Deployment
 
