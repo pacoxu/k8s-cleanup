@@ -20,7 +20,7 @@ spec:
             path: /var/run/docker.sock
       containers:
       - name: k8s-cleanup
-        image: daocloud.io/cluster-cleanup:0.1
+        image: daocloud.io/daocloud/cluster-cleanup:0.1
         imagePullPolicy: Always
         resources:
           requests:

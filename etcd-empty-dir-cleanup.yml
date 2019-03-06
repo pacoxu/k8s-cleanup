@@ -22,7 +22,7 @@ spec:
           restartPolicy: OnFailure
           containers:
           - name: k8s-cleanup
-            image: daocloud.io/cluster-cleanup:0.1
+            image: daocloud.io/daocloud/cluster-cleanup:0.1
             command: ["/bin/bash", "/bin/etcd-empty-dir-cleanup.sh"]
             resources:
               requests:
